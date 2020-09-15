@@ -1,4 +1,16 @@
 <h1>Editing Book</h1>
+<% if @book.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+     <p>
+     	<%= @book.errors.count %>error prohibited this book from being saved:
+     </p>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <!-- form_for部分 -->
 <%= form_for(@book) do |f| %>
   <h4>Title</h4>
@@ -7,3 +19,8 @@
   <%= f.text_area :body %>
   <%= f.submit 'Update Book' %>
 <% end %>
+
+<body>
+	<div><%= link_to 'Show',book_path(@book) %></div>
+	<div><%= link_to 'Back' ,books_path %></div>
+</body>

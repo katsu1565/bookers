@@ -1,5 +1,8 @@
 <header></header>
 <body>
+	<%if flash[:notice] %>
+	 <%= flash[:notice] %>
+	<% end %>
 	<table>
 		<tr>
 			<th>Title:</th>
